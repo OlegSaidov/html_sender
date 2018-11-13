@@ -1,5 +1,27 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+
+  .container
+    <br/>
+    <br/>
+      .col-md-10
+        .form-area
+          form(action='', method='post', enctype='multipart/form-data')
+            h3(style='margin-bottom: 25px; text-align: center;') HTML FILE SENDER
+            if alert_box
+              .alert.alert-success.alert-dismissible(role=alert)
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                p #{form_message_1}
+                p #{form_message_2}
+
+            .form-group
+              input.form-control(type='text', name='name', placeholder='Name', required='')
+            .form-group
+              input.form-control(type='email', name='email', placeholder='Email', required='')
+            .form-group
+              input.form-control(type='text', name='subject', placeholder='Subject', required='')
+            .form-group
+              label  HTML FILE:
+              input.form-control-file(type='file', name='filetoupload')
+            input#submit.btn.btn-primary.pull-right(type='submit', name='submit', value='submit')
